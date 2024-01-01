@@ -1,0 +1,29 @@
+ problem LINK  : https://www.geeksforgeeks.org/problems/array-pair-sum-divisibility-problem3257/1
+
+
+
+class Solution {
+  public:
+  
+    bool canPair(vector<int> nums, int k)
+    {
+        // Code here.
+        
+        if(nums.size()%2==1)return false;
+        vector<int> arr(k);
+        for(auto it : nums){
+            arr[it%k]++;
+        }
+        
+         
+        
+        int low = 1;
+        int high = k-1;
+        
+        while(low<=high){
+            if(arr[ low ++]!= arr[high--])return false;
+        }
+        return true;
+    }
+};
+
